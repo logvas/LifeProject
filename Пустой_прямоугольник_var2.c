@@ -30,12 +30,19 @@ A[1][m-2]=0;
 A[n-2][1]=0;
 A[n-2][m-2]=0;
 
-for (i=0;i<n;i++)
-{
+ FILE*out;
+    out=fopen ("output.txt","w");
 for (j=0;j<m;j++)
 {
+for (i=0;i<n;i++)
+{
+fprintf(out,"%d ",A[i][j]);
 printf("%d ",A[i][j]);
 }
+fprintf(out,"\n");
 printf("\n");
 }
+fclose(out);
+printf("Write something to exit");
+scanf("%d",&n);
 }
