@@ -3,10 +3,8 @@
 int main()
 {
 int i,j,n,k;
-char shape[20];
-scanf("%s",&shape);
 scanf("%d",&n);
-int A[n+3][5]; //или A[n+3][n+3]
+int A[n+3][5]; //РёР»Рё A[n+3][n+3]
 
 for (j=0;j<5;j++)
 {
@@ -16,7 +14,7 @@ A[i][j]=0;
 }
 }
 
-//начало алгоритма
+//РЅР°С‡Р°Р»Рѕ Р°Р»РіРѕСЂРёС‚РјР°
 	for (i=1;i<n+2;i=i+2)
     {
         A[i][1]=1;
@@ -24,13 +22,21 @@ A[i][j]=0;
     }
 if(n%2!=0)
 {A[n+2][1]=1;}
-//конец алгоритма
+//РєРѕРЅРµС† Р°Р»РіРѕСЂРёС‚РјР°
+ FILE*out;
+    out=fopen ("output.txt","w");
 for (j=0;j<5;j++)
 {
 for (i=0;i<n+4;i++)
 {
+fprintf(out,"%d ",A[i][j]);
 printf("%d ",A[i][j]);
 }
+fprintf(out,"\n");
 printf("\n");
 }
+fclose(out);
+printf("Write something to exit");
+scanf("%d",&n);
 }
+
