@@ -1,10 +1,8 @@
-//выбор??
-//gbhfvblf - for (i=0;i<high+1;i++) {a[i*2+1][i]}
 #include <stdio.h>
 #include <math.h>
 int main()
 {
-int i,n,j,high,k,kvo,t,x,y; //kvo-количсетво фигур
+int i,n,j,high,k,kvo,t,x,y; 
 scanf("%d",&high);
 high=high+2;
 x=0;
@@ -25,22 +23,29 @@ if (high%3!=0)
 {x=x+1;}
 for (j=0;j<kvo;j++)
 {
-    for (i=2;i<high-j*3;i++) //переделать под x1 x2
+    for (i=2;i<high-j*3;i++) 
     {
     A[i+j*3][high+2-i]=1;
-    A[high+i-1][i+1+j*3]=1; //сделать симметрию
+    A[high+i-1][i+1+j*3]=1; 
     }
 }
 for (j=1;j<kvo;j++)
 {A[high][j*3-2+x]=1; }
 
 
+ FILE*out;
+    out=fopen ("output.txt","w");
 for (j=0;j<high+2;j++)
 {
 for (i=0;i<n;i++)
 {
+fprintf(out,"%d ",A[i][j]);
 printf("%d ",A[i][j]);
 }
+fprintf(out,"\n");
 printf("\n");
 }
+fclose(out);
+printf("Write something to exit");
+scanf("%d",&n);
 }
