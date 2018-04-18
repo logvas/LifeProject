@@ -26,12 +26,19 @@ for (j=0;j<n+2;j++)
 }
 }
 //конец алгоритма
+ FILE*out;
+    out=fopen ("output.txt","w");
 for (j=0;j<n+2;j++)
 {
 for (i=0;i<n+2;i++)
 {
+fprintf(out,"%d ",A[i][j]);
 printf("%d ",A[i][j]);
 }
+fprintf(out,"\n");
 printf("\n");
 }
+fclose(out);
+printf("Write something to exit");
+scanf("%d",&n);
 }
