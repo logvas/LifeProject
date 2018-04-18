@@ -3,31 +3,36 @@
 int main()
 {
 int i,j,n,k;
-char shape[20];
-scanf("%s",&shape);
 scanf("%d",&n);
-int A[n+3][n+3];
+int A[n+4][n+4];
 
-for (j=0;j<n+3;j++)
+for (j=0;j<n+4;j++)
 {
-for (i=0;i<n+3;i++)
+for (i=0;i<n+4;i++)
 {
 A[i][j]=0;
 }
 }
 
-//начало алгоритма
-	for (i=1;i<n+2;i++)
+//РЅР°С‡Р°Р»Рѕ Р°Р»РіРѕСЂРёС‚РјР°
+	for (i=1;i<n+3;i++)
     {
         A[i][i]=1;
     }
-//конец алгоритма
-for (j=0;j<n+3;j++) //наклон ? при выводе
+//РєРѕРЅРµС† Р°Р»РіРѕСЂРёС‚РјР°  
+    FILE*out;
+    out=fopen ("output.txt","w");
+for (j=0;j<n+4;j++)
 {
-for (i=0;i<n+3;i++)
+for (i=0;i<n+4;i++)
 {
+fprintf(out,"%d ",A[i][j]);
 printf("%d ",A[i][j]);
 }
+fprintf(out,"\n");
 printf("\n");
 }
+fclose(out);
+printf("Write something to exit");
+scanf("%d",&n);
 }
