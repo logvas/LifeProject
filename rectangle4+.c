@@ -2,47 +2,53 @@
 #include <math.h>
 int main()
 {
-int i,j,n,k,m,t;
+int i,j,n,k,m;
 scanf("%d%d",&n,&m);
-t=2; //t должно отвечать за сдвиг на 1 по x y 
 n=n+5;
 m=m+5;
-int A[n-1+t][m-1+t];
+int A[n+1][m+1];
 
-for (j=0;j<m+t-1;j++)
+for (j=0;j<m+1;j++)
 {
-for (i=0;i<n+t-1;i++)
+for (i=0;i<n+1;i++)
 {
 A[i][j]=0;
 }
 }
 //начало алгоритма
-for (j=2+t;j<m-1-t;j++)
+for (j=4;j<m-3;j++)
 {
-for (i=2+t;i<n-1-t;i++)
+for (i=4;i<n-3;i++)
 {
 A[i][j]=1;
 }
 }
 //углы
-A[t][t]=1;
-A[t+1][t+1]=1;
+A[2][2]=1;
+A[3][3]=1;
 
-A[t][m-t]=1;
-A[t+1][m-t-1]=1;
+A[2][m-2]=1;
+A[3][m-3]=1;
 
-A[n-t][t]=1;
-A[n-t-1][t+1]=1;
+A[n-2][2]=1;
+A[n-3][3]=1;
 
-A[n-t][m-t]=1;
-A[n-t-1][m-t-1]=1;
+A[n-2][m-2]=1;
+A[n-3][m-3]=1;
 //конец алгоритма
-for (j=1;j<m+t-2;j++)
+ FILE*out;
+    out=fopen ("output.txt","w");
+for (j=0;j<m-1;j++)
 {
-for (i=1;i<n+t-2;i++)
+for (i=0;i<n-1;i++)
 {
-printf("%d ",A[i][j]);
+fprintf(out,"%d ",A[i+1][j+1]);
+printf("%d ",A[i+1][j+1]);
 }
+fprintf(out,"\n");
 printf("\n");
 }
+fclose(out);
+printf("Write something to exit");
+scanf("%d",&n);
 }
