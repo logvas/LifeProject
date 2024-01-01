@@ -1,30 +1,28 @@
 #include <stdio.h>
 #include <math.h>
-int main()
-{
-int i,j,n,k;
-scanf("%d",&n);
-int A[n+4][n+4];
 
-for (j=0;j<n+4;j++)
+void draw_line_field(int len, int A[len+4][len+4])
 {
-for (i=0;i<n+4;i++)
+for (int j=0;j<len+4;j++)
 {
-A[i][j]=0;
+for (int i=0;i<len+4;i++)
+{A[i][j]=0;}
 }
 }
 
-//начало алгоритма
-	for (i=1;i<n+3;i++)
-    {
-        A[i][i]=1;
-    }
-//конец алгоритма  
-    FILE*out;
-    out=fopen ("output.txt","w");
-for (j=0;j<n+4;j++)
+void draw_line(int len, int A[len+4][len+4])
 {
-for (i=0;i<n+4;i++)
+    for (int i=1;i<len+3;i++)
+    {A[i][i]=1;}
+}
+
+void file_console_output(int len, int A[len+4][len+4])
+{
+FILE*out;
+out=fopen ("output.txt","w");
+for (int j=0;j<len+4;j++)
+{
+for (int i=0;i<len+4;i++)
 {
 fprintf(out,"%d ",A[i][j]);
 printf("%d ",A[i][j]);
@@ -33,6 +31,17 @@ fprintf(out,"\n");
 printf("\n");
 }
 fclose(out);
-printf("Write something to exit");
-scanf("%d",&n);
+}
+
+int main()
+{
+int len;
+scanf("%d",&len);
+int A[len+4][len+4];
+draw_line_field(len,A);
+draw_line(len,A);
+file_console_output(len,A);
+
+//printf("Write something to exit");
+//scanf("%d",&len);
 }
