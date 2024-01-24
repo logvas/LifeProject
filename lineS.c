@@ -4,9 +4,9 @@ int main()
 {
 int i,j,n,k;
 scanf("%d",&n);
-int A[n+3][5]; //или A[n+3][n+3]
+int A[n+3][n+3]; //или A[n+3][n+3]
 
-for (j=0;j<5;j++)
+for (j=0;j<n+4;j++)
 {
 for (i=0;i<n+4;i++)
 {
@@ -25,7 +25,7 @@ if(n%2!=0)
 //конец алгоритма
  FILE*out;
     out=fopen ("output.txt","w");
-for (j=0;j<5;j++)
+for (j=0;j<n+4;j++)
 {
 for (i=0;i<n+4;i++)
 {
